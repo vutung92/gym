@@ -40,8 +40,8 @@ class ViewController: UIViewController {
         view.layer.cornerRadius = 17
     }
     
-    func degreesToRadians (number: Int) -> CGFloat {
-        return CGFloat((number/100)*360) * CGFloat.pi / 180.0
+    func percentToRadians (number: Float) -> CGFloat {
+        return CGFloat(CGFloat(number/100*360) * CGFloat.pi / 180.0) - CGFloat.pi/2
     }
     
     func createProgressBar(){
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         
         let trackLayer = CAShapeLayer()
         //let segmentAngle: CGFloat = (360 * 0.127) / 360
-        let cỉcularPath = UIBezierPath(arcCenter: center , radius: 50, startAngle: -CGFloat.pi/2, endAngle: degreesToRadians(number:50), clockwise: true)
+        let cỉcularPath = UIBezierPath(arcCenter: center , radius: 50, startAngle: -CGFloat.pi/2, endAngle: percentToRadians(number:27), clockwise: true)
         let trackerPath = UIBezierPath(arcCenter: center , radius: 50, startAngle: -CGFloat.pi/2, endAngle: 2 * CGFloat.pi, clockwise: true)
         
         trackLayer.path = trackerPath.cgPath
